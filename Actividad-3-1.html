@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de Actividad - Personal Social (UTP Trujillo)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #c8102e; /* Color institucional UTP */
+            --secondary-color: #002f6c;
+            --accent-green: #2e7d32;
+            --accent-blue: #0288d1;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Header Bar */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        header .badge {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .card h2 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Interactive Filter Buttons */
+        .filter-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 18px;
+            border: 2px solid var(--secondary-color);
+            background: white;
+            color: var(--secondary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Dynamic Interactive Table */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 15px 18px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: #f1f3f5;
+        }
+
+        .comp-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .badge-ambiente {
+            background-color: #e8f5e9;
+            color: var(--accent-green);
+            border: 1px solid #c8e6c9;
+        }
+
+        .badge-economia {
+            background-color: #e1f5fe;
+            color: var(--accent-blue);
+            border: 1px solid #b3e5fc;
+        }
+
+        .badge-ambas {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+            border: 1px solid #e1bee7;
+        }
+
+        /* Expandable Accordion */
+        .accordion-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #e9ecef;
+        }
+
+        .accordion-content {
+            padding: 20px;
+            display: none;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        .accordion-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .accordion-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animated-row {
+            animation: fadeIn 0.4s ease forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Didáctica de las Ciencias Sociales</span>
+        <h1>Matriz de consistencia</h1>
+        
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+            <h2><i class="fa-solid fa-list-check"></i> Matriz de Situaciones y Competencias Movilizadas</h2>
+            <p style="margin-bottom: 15px; color: #555;">Filtra o examina las competencias pedagógicas que se movilizan frente a cada situación planteada en el caso de la I.E. "José Carlos Mariátegui":</p>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterTable('all')">Todas las Situaciones</button>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 45%;">Situación Presentada</th>
+                            <th style="width: 55%;">Competencia que se moviliza (CNEB)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <tr class="animated-row" data-category="ambiente">
+                            <td><strong>Identificación de zonas vulnerables</strong></td>
+                            <td><span class="comp-badge badge-ambiente"><i class="fa-solid fa-earth-americas"></i> Gestiona responsablemente el espacio y el ambiente</span></td>
+                        </tr>
+                        <tr class="animated-row" data-category="ambiente">
+                            <td><strong>Propuesta de acciones de prevención y cuidado</strong></td>
+                            <td><span class="comp-badge badge-ambiente"><i class="fa-solid fa-earth-americas"></i> Gestiona responsablemente el espacio y el ambiente</span></td>
+                        </tr>
+                        <tr class="animated-row" data-category="economia">
+                            <td><strong>Reconocimiento de necesidades y deseos</strong></td>
+                            <td><span class="comp-badge badge-economia"><i class="fa-solid fa-coins"></i> Gestiona responsablemente los recursos económicos</span></td>
+                        </tr>
+                        <tr class="animated-row" data-category="economia">
+                            <td><strong>Priorización del uso de los recursos</strong></td>
+                            <td><span class="comp-badge badge-economia"><i class="fa-solid fa-coins"></i> Gestiona responsablemente los recursos económicos</span></td>
+                        </tr>
+                        <tr class="animated-row" data-category="economia">
+                            <td><strong>Elaboración de un presupuesto familiar</strong></td>
+                            <td><span class="comp-badge badge-economia"><i class="fa-solid fa-coins"></i> Gestiona responsablemente los recursos económicos</span></td>
+                        </tr>
+                        <tr class="animated-row" data-category="ambiente economia">
+                            <td><strong>Planificación de acciones ante el fenómeno de El Niño</strong></td>
+                            <td>
+                                <span class="comp-badge badge-ambas" style="margin-bottom: 5px; display: inline-block;">
+                                    <i class="fa-solid fa-layer-group"></i> Articulación de Ambas Competencias
+                                </span><br>
+                                <small>• <em>Espacio y ambiente:</em> Prevención de riesgos en el entorno.<br>• <em>Recursos económicos:</em> Financiamiento y presupuesto del plan de emergencia.</small>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fa-solid fa-graduation-cap"></i> Sustentación y Capacidades del CNEB</h2>
+            
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fa-solid fa-tree"></i> Competencia: Gestiona responsablemente el espacio y el ambiente</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Definición:</strong> El estudiante toma decisiones que contribuyen a la satisfacción de necesidades desde una posición crítica y de desarrollo sostenible, participando en acciones de mitigación y adaptación al cambio climático y disminución de la vulnerabilidad.</p>
+                    <ul>
+                        <li><strong>Comprende las relaciones entre los elementos naturales y sociales:</strong> Explica las dinámicas territoriales e interacciones a escala local, nacional o global.</li>
+                        <li><strong>Maneja fuentes de información:</strong> Utiliza mapas, imágenes y gráficos estadísticos para analizar el espacio geográfico.</li>
+                        <li><strong>Genera acciones para conservar el ambiente local y global:</strong> Propone e implementa prácticas orientadas al cuidado ambiental y gestión del riesgo de desastres.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fa-solid fa-wallet"></i> Competencia: Gestiona responsablemente los recursos económicos</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Definición:</strong> El estudiante administra los recursos de manera crítica, informada y responsable, reconociéndose como un agente económico consciente en su sociedad.</p>
+                    <ul>
+                        <li><strong>Comprende las relaciones del sistema económico y financiero:</strong> Identifica los roles de la familia, las empresas y el Estado.</li>
+                        <li><strong>Toma decisiones económicas y financieras:</strong> Planifica el uso sostenible de sus recursos en función a sus necesidades prioritarias (alimentos, medicinas) frente a deseos insustanciales en emergencia.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><i class="fa-solid fa-lightbulb"></i> Utilidad Didáctica de la Sesión</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Permite al docente diseñar experiencias de aprendizaje contextualizadas que articulen la prevención de desastres y el uso responsable de los recursos financieros, promoviendo una ciudadanía activa, solidaria y preparada ante contingencias como el fenómeno de El Niño 2026.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Universidad Tecnológica del Perú — UTP | Didáctica de las Ciencias Sociales</p>
+    </footer>
+
+    <script>
+        // Función para filtrar filas de la tabla
+        function filterTable(category) {
+            const rows = document.querySelectorAll('#table-body tr');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            rows.forEach(row => {
+                const categories = row.getAttribute('data-category');
+                if (category === 'all' || categories.includes(category)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Función para el Acordeón Interactivo
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.fa-chevron-down, fa-chevron-up');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                header.querySelector('i:last-child').className = 'fa-solid fa-chevron-down';
+            } else {
+                content.style.display = 'block';
+                header.querySelector('i:last-child').className = 'fa-solid fa-chevron-up';
+            }
+        }
+    </script>
+</body>
+</html>
