@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Sustentación TA5: Matriz Curricular - Personal Social</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #1A365D;
+            --secondary: #2B6CB0;
+            --accent: #E2E8F0;
+            --bg-color: #F7FAFC;
+            --text-color: #2D3748;
+            --white: #FFFFFF;
+            --light-blue: #EBF8FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            padding: 40px 50px;
+        }
+
+        /* Portada Mejorada y Reducida */
+        #portada {
+            background: linear-gradient(135deg, #E6FFFA 0%, #BEE3F8 100%);
+            border: 3px solid #90CDF4;
+            box-shadow: 0 15px 35px rgba(66, 153, 225, 0.2);
+            position: relative;
+            overflow: hidden;
+            padding: 30px 40px; /* Reducido */
+        }
+
+        #portada::before {
+            content: '\f518'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            font-size: 8rem; /* Reducido de 15rem a 8rem */
+            color: rgba(255, 255, 255, 0.5);
+            top: -10px;
+            right: 10px;
+            z-index: 0;
+        }
+
+        #portada > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Menú de Navegación Estático */
+        .nav-menu {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            background: var(--light-blue);
+            color: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            border: 1px solid #BEE3F8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu a:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .header {
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .title {
+            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* Tablas rediseñadas para separar filas por ciclo */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            border: 1px solid #CBD5E0;
+            padding: 15px;
+            text-align: left;
+            font-size: 0.95rem;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: var(--secondary);
+            color: var(--white);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        td.cycle-cell {
+            border-bottom: 2px solid #A0AEC0; /* Línea divisoria más fuerte entre ciclos */
+            background-color: #F7FAFC;
+        }
+
+        td.performance-cell {
+            border-bottom: 2px solid #A0AEC0;
+        }
+
+        .cycle-title {
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .argumentation-box {
+            background: var(--light-blue);
+            border-left: 6px solid var(--secondary);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 20px;
+        }
+
+        .argumentation-box h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .team-list { 
+            margin-top: 20px; 
+            text-align: left; 
+            display: inline-block; 
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 20px 30px; 
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .team-list li { 
+            margin-bottom: 8px; 
+            font-size: 1.05rem; 
+            color: #2C5282;
+            font-weight: 600;
+        }
+        .icon-accent { color: var(--secondary); width: 25px; }
+
+        ul.caps li { margin-bottom: 8px; }
+        
+        .pedagogical-note {
+            font-size: 0.85rem;
+            color: #4A5568;
+            background: #E2E8F0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-style: italic;
+            border-left: 3px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+
+        <!-- Portada (Tamaño Reducido) -->
+        <div class="section" id="portada" style="text-align: center;">
+            <div style="font-size: 2.5rem; color: #3182CE; margin-bottom: 10px;">
+                <i class="fas fa-university"></i>
+            </div>
+            <h2 class="subtitle" style="font-size: 1.4rem; color: #2B6CB0;">Universidad Tecnológica del Perú</h2>
+            <h1 class="title" style="font-size: 2.8rem; margin-bottom: 5px; color: #2A4365; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">TAREA ACADÉMICA 1 - TA1</h1>
+            <p style="font-size: 1.3rem; font-weight: 600; color: #3182CE;">
+                <i class="fas fa-map-signs"></i> Matriz de Análisis Curricular - Área de Personal Social
+            </p>
+            
+            <div class="team-list">
+                <h3 style="color: #2B6CB0; margin-bottom: 15px; text-align: center; border-bottom: 2px solid #90CDF4; padding-bottom: 8px;">
+                    <i class="fas fa-users-cog"></i> Equipo de Sustentación
+                </h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><i class="fas fa-user-graduate icon-accent"></i> Aaron Sixto Callupe Llallico</li>
+                    <li><i class="fas fa-user-graduate icon-accent"></i> Estefany Yeraldin Inga Moreno</li>
+                    <li><i class="fas fa-user-graduate icon-accent"></i> Ruth Ester Sánchez Verástegui</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Menú de Navegación -->
+        <div class="nav-menu">
+            <a href="#comp1"><i class="fas fa-id-badge"></i> Comp. 1</a>
+            <a href="#comp2"><i class="fas fa-hands-helping"></i> Comp. 2</a>
+            <a href="#comp3"><i class="fas fa-landmark"></i> Comp. 3</a>
+            <a href="#comp4"><i class="fas fa-leaf"></i> Comp. 4</a>
+            <a href="#comp5"><i class="fas fa-piggy-bank"></i> Comp. 5</a>
+            <a href="#conclusiones"><i class="fas fa-clipboard-check"></i> Conclusiones</a>
+        </div>
+
+        <!-- Introducción a la Matriz -->
+        <div class="section" id="justificacion">
+            <div class="header">
+                <h2 class="subtitle"><i class="fas fa-book-open"></i> Justificación Pedagógica Inicial</h2>
+                <h1 class="title">Estructura del Análisis Curricular</h1>
+            </div>
+            <div class="content">
+              
+                
+                <div class="argumentation-box">
+                    <h4><i class="fas fa-project-diagram"></i> 1. La Competencia y sus Capacidades (Nivel Macro)</h4>
+                    <p>La competencia es el saber actuar complejo. Las capacidades son los recursos menores (conocimientos, habilidades, actitudes) que <strong>deben combinarse si o si</strong> para lograr ser competente. Ninguna capacidad funciona de forma aislada.</p>
+                </div>
+
+                <div class="argumentation-box">
+                    <h4><i class="fas fa-layer-group"></i> 2. Estándares y Desempeños (Nivel de Concreción)</h4>
+                    <p>El <strong>Estándar</strong> describe la expectativa de aprendizaje al finalizar un ciclo escolar (visión holística). Los <strong>Desempeños</strong> son descripciones específicas y observables de lo que hacen los estudiantes en un grado particular para demostrar que están en camino a alcanzar dicho estándar.</p>
+                </div>
+                <p style="text-align: center; font-weight: bold; color: var(--secondary); margin-top: 20px;">
+                    <i class="fas fa-arrow-down"></i> A continuación, presentamos el análisis matricial detallado de las 5 competencias. Las matrices están alineadas curricularmente para demostrar la progresión de cada estándar según su ciclo y grado correspondiente.
+                </p>
+            </div>
+        </div>
+
+        <!-- Competencia 1 -->
+        <div class="section" id="comp1">
+            <div class="header">
+                <h2 class="subtitle">Competencia 1</h2>
+                <h1 class="title"><i class="fas fa-id-badge"></i> Construye su identidad</h1>
+            </div>
+            <table>
+                <tr>
+                    <th width="25%"><i class="fas fa-tools"></i> Capacidades</th>
+                    <th width="30%"><i class="fas fa-chart-line"></i> Estándar de Aprendizaje</th>
+                    <th width="45%"><i class="fas fa-tasks"></i> Desempeños observables</th>
+                </tr>
+                <!-- Filas divididas estructuralmente por ciclo -->
+                <tr>
+                    <td rowspan="3" style="background-color: var(--white);">
+                        <ul class="caps" style="list-style:none;">
+                            <li><i class="fas fa-check text-secondary"></i> Se valora a sí mismo.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Autorregula sus emociones.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Reflexiona y argumenta éticamente.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Vive su sexualidad de manera integral y responsable.</li>
+                        </ul>
+                        <div class="pedagogical-note">
+                            <strong>Nota curricular:</strong> Las capacidades son inherentes a la competencia general y NO varían por ciclo.
+                        </div>
+                    </td>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo III:</span> Construye su identidad al tomar conciencia de los aspectos que lo hacen único. Describe sus emociones y explica sus causas.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 1° Grado:</span> Expresa sus características físicas, habilidades y gustos. Reconoce sus emociones y las de sus compañeros.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 2° Grado:</span> Expresa sus características físicas, habilidades y gustos, y explica las razones de aquello que le agrada de sí mismo. Reconoce emociones y menciona sus causas.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo IV:</span> Construye su identidad... Se reconoce como parte de su familia, grupo escolar y comunidad. Describe sus emociones y explica sus causas y posibles consecuencias.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 3° Grado:</span> Describe aquellas características personales, cualidades, habilidades y logros que hacen que se sienta orgulloso de sí mismo.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 4° Grado:</span> Relaciona sus diversas emociones con su comportamiento y el de sus compañeros; menciona las causas y consecuencias de estas y las regula.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo V:</span> Construye su identidad al tomar conciencia de los aspectos que lo hacen único... valora su identidad cultural. Se relaciona con igualdad y respeto.
+                    </td>
+                    <td class="performance-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 5° Grado:</span> Explica sus características personales, cualidades y logros que lo hacen único. Explica las causas de sus emociones y aplica estrategias de autorregulación.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 6° Grado:</span> Explica las características, cualidades y logros que lo hacen único. Explica causas y consecuencias de sus emociones y utiliza diversas estrategias de autorregulación empática.
+                    </td>
+                </tr>
+            </table>
+            <div class="argumentation-box">
+                <h4><i class="fas fa-comment-dots"></i> Sustentación del Análisis Curricular:</h4>
+                <p><strong>Relación Desempeño - Estándar:</strong> Al observar la alineación por ciclo, notamos que el estándar no se alcanza en un solo salto. En 1° grado el niño solo "reconoce", en 2° "explica razones", en 4° "regula", y en 6° "utiliza diversas estrategias de autorregulación". Esta progresión grado a grado es lo que construye el estándar final de cada ciclo.</p>
+            </div>
+        </div>
+
+        <!-- Competencia 2 -->
+        <div class="section" id="comp2">
+            <div class="header">
+                <h2 class="subtitle">Competencia 2</h2>
+                <h1 class="title"><i class="fas fa-hands-helping"></i> Convive y participa democráticamente</h1>
+            </div>
+            <table>
+                <tr>
+                    <th width="25%"><i class="fas fa-tools"></i> Capacidades</th>
+                    <th width="30%"><i class="fas fa-chart-line"></i> Estándar de Aprendizaje</th>
+                    <th width="45%"><i class="fas fa-tasks"></i> Desempeños observables</th>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="background-color: var(--white);">
+                        <ul class="caps" style="list-style:none;">
+                            <li><i class="fas fa-check text-secondary"></i> Interactúa con todas las personas.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Construye normas y asume acuerdos.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Maneja conflictos.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Delibera sobre asuntos públicos.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Participa en acciones por el bienestar.</li>
+                        </ul>
+                        <div class="pedagogical-note">
+                            <strong>Nota curricular:</strong> Las capacidades son inherentes a la competencia general y NO varían por ciclo.
+                        </div>
+                    </td>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo III:</span> Convive y participa democráticamente cuando se relaciona con los demás respetando las diferencias y cumpliendo con sus deberes.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 1° Grado:</span> Comparte actividades con sus compañeros respetando sus diferencias y tratándolos con amabilidad.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 2° Grado:</span> Comparte actividades con sus compañeros respetando diferencias y proponiendo acuerdos básicos de convivencia.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo IV:</span> Convive... expresando su desacuerdo frente a situaciones que vulneran la convivencia y cumpliendo con sus deberes. Participa en la elaboración de normas.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 3° Grado:</span> Participa en la elaboración de acuerdos y normas de convivencia en el aula, escuchando las propuestas de sus compañeros.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 4° Grado:</span> Propone alternativas de solución a conflictos por los que atraviesa: recurre al diálogo y a mediadores si lo cree necesario.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo V:</span> Convive respetando las diferencias, los derechos de cada uno, cumpliendo y evaluando sus deberes.
+                    </td>
+                    <td class="performance-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 5° Grado:</span> Muestra un trato respetuoso e inclusivo con sus compañeros. Evalúa el cumplimiento de las normas de convivencia.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 6° Grado:</span> Muestra un trato respetuoso, promueve la integración y propone, a partir de un diagnóstico, acciones colectivas orientadas al bien común.
+                    </td>
+                </tr>
+            </table>
+            <div class="argumentation-box">
+                <h4><i class="fas fa-comment-dots"></i> Sustentación del Análisis Curricular:</h4>
+                <p><strong>Relación Desempeño - Estándar:</strong> El manejo de conflictos y normas se complejiza por grado de manera alineada al ciclo. Empieza compartiendo con amabilidad (Ciclo III), pasa a proponer soluciones y mediación (Ciclo IV), y culmina evaluando normas y realizando diagnósticos de aula (Ciclo V).</p>
+            </div>
+        </div>
+
+        <!-- Competencia 3 -->
+        <div class="section" id="comp3">
+            <div class="header">
+                <h2 class="subtitle">Competencia 3</h2>
+                <h1 class="title"><i class="fas fa-landmark"></i> Construye interpretaciones históricas</h1>
+            </div>
+            <table>
+                <tr>
+                    <th width="25%"><i class="fas fa-tools"></i> Capacidades</th>
+                    <th width="30%"><i class="fas fa-chart-line"></i> Estándar de Aprendizaje</th>
+                    <th width="45%"><i class="fas fa-tasks"></i> Desempeños observables</th>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="background-color: var(--white);">
+                        <ul class="caps" style="list-style:none;">
+                            <li><i class="fas fa-check text-secondary"></i> Interpreta críticamente fuentes diversas.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Comprende el tiempo histórico.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Elabora explicaciones sobre procesos.</li>
+                        </ul>
+                        <div class="pedagogical-note">
+                            <strong>Nota curricular:</strong> Las capacidades son inherentes a la competencia general y NO varían por ciclo.
+                        </div>
+                    </td>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo III:</span> Narra hechos y procesos de su historia personal y local.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 1° Grado:</span> Obtiene información sobre sí mismo o sobre hechos cotidianos del pasado a partir del testimonio oral de personas cercanas.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 2° Grado:</span> Obtiene información de su historia personal y familiar mediante fotografías y objetos antiguos.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo IV:</span> Narra hechos relacionados a la historia de su región, incorpora más de una dimensión y reconoce causas y consecuencias usando diversas fuentes.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 3° Grado:</span> Obtiene información acerca del proceso del poblamiento americano y de las primeras bandas a partir de cuadros, cerámicas y relatos.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 4° Grado:</span> Explica hechos o procesos históricos claves de su región, sociedades preincas e incas, reconociendo sus causas.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo V:</span> Explica procesos históricos peruanos, empleando categorías temporales y analizando distintas fuentes de información.
+                    </td>
+                    <td class="performance-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 5° Grado:</span> Obtiene información sobre un hecho histórico, desde el Virreinato hasta la Independencia, usando fuentes documentales.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 6° Grado:</span> Explica hechos o procesos históricos de la época republicana del Perú identificando cambios y permanencias usando diversas fuentes confiables.
+                    </td>
+                </tr>
+            </table>
+            <div class="argumentation-box">
+                <h4><i class="fas fa-comment-dots"></i> Sustentación del Análisis Curricular:</h4>
+                <p><strong>Relación Desempeño - Estándar:</strong> La interpretación de fuentes evoluciona visiblemente y está sustentada por ciclo: testimonios orales en Ciclo III, cerámicas y relatos en Ciclo IV, y documentos históricos en Ciclo V. Cada grado aporta una herramienta nueva para alcanzar el estándar.</p>
+            </div>
+        </div>
+
+        <!-- Competencia 4 -->
+        <div class="section" id="comp4">
+            <div class="header">
+                <h2 class="subtitle">Competencia 4</h2>
+                <h1 class="title"><i class="fas fa-leaf"></i> Gestiona el espacio y el ambiente</h1>
+            </div>
+            <table>
+                <tr>
+                    <th width="25%"><i class="fas fa-tools"></i> Capacidades</th>
+                    <th width="30%"><i class="fas fa-chart-line"></i> Estándar de Aprendizaje</th>
+                    <th width="45%"><i class="fas fa-tasks"></i> Desempeños observables</th>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="background-color: var(--white);">
+                        <ul class="caps" style="list-style:none;">
+                            <li><i class="fas fa-check text-secondary"></i> Comprende relaciones naturales y sociales.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Maneja fuentes de información geográfica.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Genera acciones para conservar el ambiente.</li>
+                        </ul>
+                        <div class="pedagogical-note">
+                            <strong>Nota curricular:</strong> Las capacidades son inherentes a la competencia general y NO varían por ciclo.
+                        </div>
+                    </td>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo III:</span> Desarrolla actividades sencillas frente a los problemas y peligros que lo afectan.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 1° Grado:</span> Brinda ejemplos de relaciones simples entre elementos naturales y sociales de su espacio cotidiano.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 2° Grado:</span> Identifica las posibles causas y consecuencias de los problemas ambientales en su espacio cotidiano.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo IV:</span> Realiza actividades específicas para el cuidado a partir de reconocer causas y consecuencias de problemas ambientales.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 3° Grado:</span> Identifica los problemas ambientales de su localidad y región, así como las consecuencias que tienen en la vida.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 4° Grado:</span> Realiza actividades para el cuidado de su entorno escolar y participa en simulacros de sismo.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo V:</span> Realiza frecuentemente actividades para su cuidado y al disminuir factores de vulnerabilidad frente al cambio climático.
+                    </td>
+                    <td class="performance-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 5° Grado:</span> Compara los elementos naturales y sociales de su localidad y región. Explica causas de problemas ambientales.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 6° Grado:</span> Explica los servicios ambientales que brindan las principales áreas naturales protegidas de su región y propone acciones frente al cambio climático.
+                    </td>
+                </tr>
+            </table>
+            <div class="argumentation-box">
+                <h4><i class="fas fa-comment-dots"></i> Sustentación del Análisis Curricular:</h4>
+                <p><strong>Relación Desempeño - Estándar:</strong> Se observa la expansión coherente del entorno. El estudiante del Ciclo III gestiona su "espacio cotidiano". El del Ciclo IV se enfoca en su "escuela y localidad". Finalmente, en el Ciclo V, el desempeño se amplía a la "región" y "áreas naturales protegidas".</p>
+            </div>
+        </div>
+
+        <!-- Competencia 5 -->
+        <div class="section" id="comp5">
+            <div class="header">
+                <h2 class="subtitle">Competencia 5</h2>
+                <h1 class="title"><i class="fas fa-piggy-bank"></i> Gestiona los recursos económicos</h1>
+            </div>
+            <table>
+                <tr>
+                    <th width="25%"><i class="fas fa-tools"></i> Capacidades</th>
+                    <th width="30%"><i class="fas fa-chart-line"></i> Estándar de Aprendizaje</th>
+                    <th width="45%"><i class="fas fa-tasks"></i> Desempeños observables</th>
+                </tr>
+                <tr>
+                    <td rowspan="3" style="background-color: var(--white);">
+                        <ul class="caps" style="list-style:none;">
+                            <li><i class="fas fa-check text-secondary"></i> Comprende el sistema económico y financiero.</li>
+                            <li><i class="fas fa-check text-secondary"></i> Toma decisiones económicas y financieras.</li>
+                        </ul>
+                        <div class="pedagogical-note">
+                            <strong>Nota curricular:</strong> Las capacidades son inherentes a la competencia general y NO varían por ciclo.
+                        </div>
+                    </td>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo III:</span> Utiliza los bienes y servicios con los que cuenta en su familia y en la escuela.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 1° Grado:</span> Explica las ocupaciones que desarrollan las personas de su espacio cotidiano para atender necesidades.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 2° Grado:</span> Utiliza responsablemente los recursos (ej. agua, luz) de su familia y escuela reconociendo que se agotan.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo IV:</span> Diferencia entre necesidades y deseos, y usa los servicios públicos reconociendo que tienen un costo.
+                    </td>
+                    <td class="performance-cell">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 3° Grado:</span> Explica que el trabajo de sus familiares permite obtener dinero para satisfacer necesidades básicas.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 4° Grado:</span> Ejecuta acciones que contribuyen a su economía familiar diferenciando entre necesidades y deseos.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="cycle-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-circle-notch"></i> Ciclo V:</span> Utiliza el dinero y otros recursos como consumidor informado y realiza acciones de ahorro e inversión.
+                    </td>
+                    <td class="performance-cell" style="border-bottom: none;">
+                        <span class="cycle-title"><i class="fas fa-star"></i> 5° Grado:</span> Explica el proceso económico y cómo las personas y empresas toman decisiones financieras.<br><br>
+                        <span class="cycle-title"><i class="fas fa-star"></i> 6° Grado:</span> Argumenta la importancia de cumplir con el pago de impuestos y promueve acciones de ahorro e inversión como consumidor responsable.
+                    </td>
+                </tr>
+            </table>
+            <div class="argumentation-box">
+                <h4><i class="fas fa-comment-dots"></i> Sustentación del Análisis Curricular:</h4>
+                <p><strong>Relación Desempeño - Estándar:</strong> La comprensión económica avanza explícitamente y se articula en la matriz: desde entender por qué la gente trabaja en el Ciclo III, diferenciar necesidad de deseo en el Ciclo IV, hasta llegar a conceptos abstractos de mercado y ahorro de un consumidor informado en el Ciclo V.</p>
+            </div>
+        </div>
+
+        <!-- Conclusiones -->
+        <div class="section" id="conclusiones">
+            <div class="header">
+                <h2 class="subtitle"><i class="fas fa-flag-checkered"></i> Cierre de Sustentación</h2>
+                <h1 class="title">Coherencia y Toma de Decisiones Curriculares</h1>
+            </div>
+            <div class="content">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">A partir del análisis sistemático de esta matriz a lo largo de toda la etapa primaria, nuestro equipo fundamenta las siguientes conclusiones pedagógicas basadas en los lineamientos del CNEB:</p>
+                
+                <div class="argumentation-box">
+                    <h4><i class="fas fa-link"></i> 1. Articulación Lógica y Consistente</h4>
+                    <p>La matriz demuestra que el <strong>Estándar no se logra de manera inmediata</strong>. Es el resultado de movilizar pertinentemente las capacidades a través de situaciones significativas, donde los <strong>Desempeños actúan como indicadores medibles</strong> del progreso del estudiante año tras año, de 1° a 6° grado, evidenciando el nivel de concreción exigido.</p>
+                </div>
+
+                <div class="argumentation-box">
+                    <h4><i class="fas fa-globe"></i> 2. El Enfoque del Área de Personal Social</h4>
+                    <p>Las 5 competencias promueven la <strong>Ciudadanía Activa</strong>. El desarrollo es progresivo y transversal: un estudiante que comprende su historia (Comp. 3) y su espacio geográfico (Comp. 4), está mejor preparado para gestionar recursos (Comp. 5), construir su identidad (Comp. 1) y ejercer una vida democrática plena en su comunidad (Comp. 2).</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px; padding: 20px; background: #EBF8FF; border-radius: 15px; border: 2px dashed #90CDF4;">
+                    <h3 style="color: var(--primary);"><i class="fas fa-microphone-alt"></i> ¡Muchas gracias por su atención! - Grupo 9.</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
