@@ -53,7 +53,7 @@
             margin: 0 auto;
         }
 
-        /* Barra Superior (Logo + Portafolio Digital Badge) */
+        /* Barra Superior */
         .university-header {
             display: flex;
             justify-content: space-between;
@@ -108,7 +108,7 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
         }
 
-        /* Grilla de Ficha Informativa (2 Datos Curso + 4 Estudiantes) */
+        /* Grilla de Ficha Informativa */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -252,10 +252,10 @@
             border-radius: 12px;
         }
 
-        /* Grupo de Botones: Espacios amplios sin saltos de línea */
+        /* Grupo de Botones dinámico (se adapta según la cantidad de botones) */
         .buttons-group {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 0.75rem;
             width: 100%;
         }
@@ -275,7 +275,7 @@
             justify-content: center;
             gap: 0.35rem;
             text-decoration: none;
-            white-space: nowrap; /* Evita que el texto de la actividad se divida o salte de línea */
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             width: 100%;
@@ -306,7 +306,6 @@
             font-size: 0.8rem;
         }
 
-        /* Ajustes específicos para pantallas pequeñas / móviles */
         @media (max-width: 480px) {
             .hero-header {
                 padding: 1rem 0.75rem 1.25rem;
@@ -322,14 +321,7 @@
                 padding: 0.25rem 0.6rem;
             }
             .weeks-grid {
-                grid-template-columns: 1fr; /* Una columna que aprovecha el 100% del ancho móvil */
-            }
-            .buttons-group {
-                grid-template-columns: 1fr 1fr; /* Mantiene 2 botones amplios lado a lado */
-            }
-            .btn {
-                font-size: 0.8rem;
-                padding: 0.65rem 0.25rem;
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -369,7 +361,7 @@
                     </div>
                 </div>
 
-                <!-- Lista de 4 Estudiantes -->
+                <!-- Lista de Estudiantes -->
                 <div class="info-card" style="grid-column: span 1;">
                     <div class="info-icon" style="align-self: flex-start; margin-top: 0.2rem;">
                         <i class="fa-solid fa-users"></i>
@@ -395,11 +387,11 @@
             <h2>
                 <i class="fa-solid fa-timeline"></i> Semanas de Actividades
             </h2>
-            <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">9 Semanas</span>
+            <span id="totalSemanasText" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">18 Semanas</span>
         </div>
 
         <div class="weeks-grid" id="weeksContainer">
-            <!-- Se generan las 9 semanas dinámicamente -->
+            <!-- Se generan las semanas dinámicamente -->
         </div>
 
         <footer>
@@ -408,40 +400,171 @@
     </main>
 
     <script>
-        const container = document.getElementById('weeksContainer');
-        const totalSemanas = 9;
+        // Estructura configurable por semanas y sus actividades correspondientes.
+        // Si una semana tiene solo 1 actividad (por ejemplo la Semana 5), eliminas el segundo objeto del arreglo de esa semana.
+        const semanasData = [
+            {
+                semana: 1,
+                actividades: [
+                    { id: "1.1", archivo: "Actividad-1-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "1.2", archivo: "Actividad-1-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 2,
+                actividades: [
+                    { id: "2.1", archivo: "Actividad-2-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "2.2", archivo: "Actividad-2-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 3,
+                actividades: [
+                    { id: "3.1", archivo: "Actividad-3-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "3.2", archivo: "Actividad-3-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 4,
+                actividades: [
+                    { id: "4.1", archivo: "Actividad-4-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "4.2", archivo: "Actividad-4-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 5,
+                // EJEMPLO: Si la semana 5 solo tiene 1 actividad, mantienes solo una en el arreglo:
+                actividades: [
+                    { id: "5.1", archivo: "Actividad-5-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    //{ id: "4.2", archivo: "Actividad-4-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 6,
+                actividades: [
+                    { id: "6.1", archivo: "Actividad-6-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "6.2", archivo: "Actividad-6-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 7,
+                actividades: [
+                    { id: "7.1", archivo: "Actividad-7-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "7.2", archivo: "Actividad-7-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 8,
+                actividades: [
+                    { id: "8.1", archivo: "Actividad-8-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "8.2", archivo: "Actividad-8-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 9,
+                actividades: [
+                    { id: "9.1", archivo: "Actividad-9-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "9.2", archivo: "Actividad-9-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            /*{
+                semana: 10,
+                actividades: [
+                    { id: "10.1", archivo: "Actividad-10-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "10.2", archivo: "Actividad-10-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 11,
+                actividades: [
+                    { id: "11.1", archivo: "Actividad-11-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "11.2", archivo: "Actividad-11-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 12,
+                actividades: [
+                    { id: "12.1", archivo: "Actividad-12-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "12.2", archivo: "Actividad-12-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 13,
+                actividades: [
+                    { id: "13.1", archivo: "Actividad-13-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "13.2", archivo: "Actividad-13-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 14,
+                actividades: [
+                    { id: "14.1", archivo: "Actividad-14-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "14.2", archivo: "Actividad-14-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 15,
+                actividades: [
+                    { id: "15.1", archivo: "Actividad-15-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "15.2", archivo: "Actividad-15-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 16,
+                actividades: [
+                    { id: "16.1", archivo: "Actividad-16-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "16.2", archivo: "Actividad-16-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 17,
+                actividades: [
+                    { id: "17.1", archivo: "Actividad-17-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "17.2", archivo: "Actividad-17-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            },
+            {
+                semana: 18,
+                actividades: [
+                    { id: "18.1", archivo: "Actividad-18-1.html", icono: "fa-file-lines", claseBtn: "btn" },
+                    { id: "18.2", archivo: "Actividad-18-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                ]
+            }*/
+        ];
 
-        for (let semana = 1; semana <= totalSemanas; semana++) {
+        const container = document.getElementById('weeksContainer');
+        document.getElementById('totalSemanasText').textContent = `${semanasData.length} Semanas`;
+
+        semanasData.forEach(item => {
             const weekCard = document.createElement('div');
             weekCard.className = 'week-card';
+
+            // Generación dinámica de los botones de actividades
+            let botonesHTML = '';
+            item.actividades.forEach(act => {
+                botonesHTML += `
+                    <a href="${act.archivo}" class="${act.claseBtn}" title="Actividad ${act.id}">
+                        <i class="fa-solid ${act.icono}"></i> Actividad-${act.id}
+                    </a>
+                `;
+            });
 
             weekCard.innerHTML = `
                 <div>
                     <div class="week-card-header">
                         <h3 class="week-title">
-                            <i class="fa-regular fa-calendar-check" style="color: var(--secondary);"></i> Semana ${semana}
+                            <i class="fa-regular fa-calendar-check" style="color: var(--secondary);"></i> Semana ${item.semana}
                         </h3>
-                        <span class="week-badge">Sesión ${semana}</span>
+                        <span class="week-badge">Sesión ${item.semana}</span>
                     </div>
                 </div>
                 <div class="buttons-group">
-                    <button class="btn" onclick="abrirActividad(${semana}, 1)" title="Actividad-${semana}-1">
-                        <i class="fa-solid fa-file-lines"></i> Actividad-${semana}-1
-                    </button>
-                    <button class="btn btn-secondary" onclick="abrirActividad(${semana}, 2)" title="Actividad-${semana}-2">
-                        <i class="fa-solid fa-file-pen"></i> Actividad-${semana}-2
-                    </button>
+                    ${botonesHTML}
                 </div>
             `;
 
             container.appendChild(weekCard);
-        }
-
-        // Redirección a archivos HTML
-        function abrirActividad(semana, actividad) {
-            const nombreArchivo = `Actividad-${semana}-${actividad}.html`;
-            window.location.href = nombreArchivo;
-        }
+        });
     </script>
 
 </body>
