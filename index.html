@@ -208,7 +208,7 @@
             gap: 1.25rem;
         }
 
-        /* Tarjeta de Semana */
+        /* Tarjeta de Semana / Reflexión */
         .week-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border);
@@ -252,7 +252,7 @@
             border-radius: 12px;
         }
 
-        /* Grupo de Botones dinámico (se adapta según la cantidad de botones) */
+        /* Grupo de Botones dinámico */
         .buttons-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -380,18 +380,31 @@
         </div>
     </header>
 
-    <!-- CONTENIDO / SEMANAS -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="main-container">
         
+        <!-- SECCIÓN SEMANAS DE ACTIVIDADES -->
         <div class="section-header">
             <h2>
                 <i class="fa-solid fa-timeline"></i> Semanas de Actividades
             </h2>
-            <span id="totalSemanasText" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">18 Semanas</span>
+            <span id="totalSemanasText" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">9 Semanas</span>
         </div>
 
         <div class="weeks-grid" id="weeksContainer">
             <!-- Se generan las semanas dinámicamente -->
+        </div>
+
+        <!-- SECCIÓN REFLEXIONES -->
+        <div class="section-header" style="margin-top: 2.5rem;">
+            <h2>
+                <i class="fa-solid fa-lightbulb"></i> Reflexiones
+            </h2>
+            <span id="totalReflexionesText" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 600;">5 Reflexiones</span>
+        </div>
+
+        <div class="weeks-grid" id="reflexionesContainer">
+            <!-- Se generan las reflexiones dinámicamente -->
         </div>
 
         <footer>
@@ -401,7 +414,6 @@
 
     <script>
         // Estructura configurable por semanas y sus actividades correspondientes.
-        // Si una semana tiene solo 1 actividad (por ejemplo la Semana 5), eliminas el segundo objeto del arreglo de esa semana.
         const semanasData = [
             {
                 semana: 1,
@@ -433,10 +445,8 @@
             },
             {
                 semana: 5,
-                // EJEMPLO: Si la semana 5 solo tiene 1 actividad, mantienes solo una en el arreglo:
                 actividades: [
-                    { id: "5.1", archivo: "Actividad-5-1.html", icono: "fa-file-lines", claseBtn: "btn" },
-                    //{ id: "4.2", archivo: "Actividad-4-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                    { id: "5.1", archivo: "Actividad-5-1.html", icono: "fa-file-lines", claseBtn: "btn" }
                 ]
             },
             {
@@ -463,8 +473,7 @@
             {
                 semana: 9,
                 actividades: [
-                    { id: "9.1", archivo: "Actividad-9-1.html", icono: "fa-file-lines", claseBtn: "btn" },
-                    //{ id: "9.2", archivo: "Actividad-9-2.html", icono: "fa-file-pen", claseBtn: "btn btn-secondary" }
+                    { id: "9.1", archivo: "Actividad-9-1.html", icono: "fa-file-lines", claseBtn: "btn" }
                 ]
             },
             /*{
@@ -532,14 +541,54 @@
             }*/
         ];
 
-        const container = document.getElementById('weeksContainer');
+        // Estructura configurable para las Reflexiones
+        // Puedes cambiar libremente el 'titulo', 'badge', 'textoBoton' o 'archivo' según lo necesites
+        const reflexionesData = [
+            {
+                titulo: "Reflexión 1",
+                badge: "Reflexión 1",
+                archivo: "reflexion-1.html",
+                textoBoton: "Ver Reflexión",
+                icono: "fa-book-open"
+            },
+            /*{
+                titulo: "Reflexión 2",
+                badge: "Reflexión 2",
+                archivo: "reflexion-2.html",
+                textoBoton: "Ver Reflexión",
+                icono: "fa-book-open"
+            },
+            {
+                titulo: "Reflexión 3",
+                badge: "Reflexión 3",
+                archivo: "reflexion-3.html",
+                textoBoton: "Ver Reflexión",
+                icono: "fa-book-open"
+            },
+            {
+                titulo: "Reflexión 4",
+                badge: "Reflexión 4",
+                archivo: "reflexion-4.html",
+                textoBoton: "Ver Reflexión",
+                icono: "fa-book-open"
+            },
+            {
+                titulo: "Reflexión 5",
+                badge: "Reflexión 5",
+                archivo: "reflexion-5.html",
+                textoBoton: "Ver Reflexión",
+                icono: "fa-book-open"
+            }*/
+        ];
+
+        // RENDERIZAR SEMANAS
+        const weeksContainer = document.getElementById('weeksContainer');
         document.getElementById('totalSemanasText').textContent = `${semanasData.length} Semanas`;
 
         semanasData.forEach(item => {
             const weekCard = document.createElement('div');
             weekCard.className = 'week-card';
 
-            // Generación dinámica de los botones de actividades
             let botonesHTML = '';
             item.actividades.forEach(act => {
                 botonesHTML += `
@@ -563,7 +612,34 @@
                 </div>
             `;
 
-            container.appendChild(weekCard);
+            weeksContainer.appendChild(weekCard);
+        });
+
+        // RENDERIZAR REFLEXIONES
+        const reflexionesContainer = document.getElementById('reflexionesContainer');
+        document.getElementById('totalReflexionesText').textContent = `${reflexionesData.length} Reflexiones`;
+
+        reflexionesData.forEach(item => {
+            const reflectionCard = document.createElement('div');
+            reflectionCard.className = 'week-card';
+
+            reflectionCard.innerHTML = `
+                <div>
+                    <div class="week-card-header">
+                        <h3 class="week-title">
+                            <i class="fa-regular fa-lightbulb" style="color: var(--secondary);"></i> ${item.titulo}
+                        </h3>
+                        <span class="week-badge">${item.badge}</span>
+                    </div>
+                </div>
+                <div class="buttons-group">
+                    <a href="${item.archivo}" class="btn" title="${item.textoBoton}">
+                        <i class="fa-solid ${item.icono}"></i> ${item.textoBoton}
+                    </a>
+                </div>
+            `;
+
+            reflexionesContainer.appendChild(reflectionCard);
         });
     </script>
 
