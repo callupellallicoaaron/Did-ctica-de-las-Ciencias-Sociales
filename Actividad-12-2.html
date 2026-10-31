@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión de Aprendizaje</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos adicionales para simular tamaño A4 y optimizar para impresión */
+        body {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            text-align: justify;
+            color: #000;
+        }
+        .a4-container {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 2rem auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        @media print {
+            body {
+                background-color: white;
+            }
+            .a4-container {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+        .fill-space {
+            min-height: 1.5rem;
+            border-bottom: 1px dotted #9ca3af;
+            flex-grow: 1;
+            margin-left: 0.5rem;
+        }
+        .text-block-space {
+            min-height: 4rem;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="a4-container">
+        <!-- 1. Título principal -->
+        <h1 class="text-xl font-bold text-center mb-2 uppercase underline decoration-2 underline-offset-4">Sesión de Aprendizaje</h1>
+        <h2 class="text-lg font-bold text-center mb-8">“Construimos nuestros acuerdos de convivencia de forma democrática”</h2>
+
+        <!-- 1. DATOS INFORMATIVOS -->
+        <section class="mb-6">
+            <h2 class="font-bold text-lg mb-3 uppercase">1. Datos Informativos</h2>
+            <ul class="list-disc pl-5 space-y-1">
+                <li><span class="font-bold">Institución Educativa:</span> I.E.P. "Cristo Te Ama"</li>
+                <li><span class="font-bold">Grado y Sección:</span> 4.° Grado de Primaria</li>
+                <li><span class="font-bold">Duración:</span> 90 minutos</li>
+                <div class="flex items-start md:col-span-2">
+                    <li><span class="font-bold mr-2 whitespace-nowrap">Docentes (Equipo):</span></li>
+                    <ul class="list-disc ml-5">
+                        <li>Callupe Llallico, Aaron Sixto</li>
+                        <li>Inga Moreno, Estefany Yeraldin</li>
+                        <li>Sánchez Verastegui, Ruth Ester</li>
+                    </ul>
+                </div>
+                <li><span class="font-bold">Fecha:</span> 31 de octubre de 2026</li>
+            </ul>
+        </section>
+
+        <!-- 2. PROPÓSITO DE LA SESIÓN -->
+        <section class="mb-6">
+            <h2 class="font-bold text-lg uppercase mb-2">2. Propósito de la Sesión</h2>
+            <table class="w-full border-collapse border border-gray-800 text-sm mt-2">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/3">¿Qué?</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/3">¿Cómo?</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/3">¿Para qué?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-800 p-2 align-top">Aprender a argumentar ideas con respeto, escuchar activamente a los compañeros y comprender que las normas de convivencia son acuerdos construidos colectivamente.</td>
+                        <td class="border border-gray-800 p-2 align-top text-center">Mediante la deliberación, el debate en pequeños grupos y el consenso en asamblea de aula.</td>
+                        <td class="border border-gray-800 p-2 align-top text-center">Para garantizar el bien común, proteger nuestros derechos y fomentar la participación democrática en el aula.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 3. SITUACIÓN SIGNIFICATIVA -->
+        <section class="mb-6">
+            <h2 class="font-bold text-lg uppercase mb-2">3. Situación Significativa</h2>
+            <p class="mb-2">En el aula de 4.° grado de primaria se ha evidenciado el establecimiento autoritario de normas y la aplicación de sanciones directas sin consultar ni escuchar previamente a los estudiantes. Esta práctica genera un ambiente de imposición, vulnera el derecho de los niños y niñas a la libre participación y expresión, y deteriora el clima de convivencia escolar al no permitir el diálogo constructivo ni la reflexión formativa frente a los conflictos cotidianos.</p>
+            <p class="mb-2">Frente a esta problemática que afecta el bienestar del grupo, los estudiantes se plantean los siguientes retos para transformar su convivencia:</p>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>¿Cómo nos sentimos cuando nos imponen reglas y nos sancionan sin escucharnos?</li>
+                <li>¿Cuál es la diferencia entre obedecer reglas por temor al castigo y cumplir acuerdos construidos entre todos?</li>
+                <li>¿De qué manera podemos deliberar y participar democráticamente para establecer acuerdos que protejan nuestros derechos y promuevan el bien común?</li>
+            </ul>
+        </section>
+
+        <!-- 4. APRENDIZAJES ESPERADOS -->
+        <section class="mb-8">
+            <h2 class="font-bold text-lg mb-2 uppercase">4. Aprendizajes Esperados</h2>
+            <table class="w-full border-collapse border border-gray-800 text-sm">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/6">Área</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/6">Competencia</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/4">Capacidades</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/4">Criterios de Evaluación</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/6">Evidencias de Aprendizaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-800 p-2 text-center align-top">Personal Social</td>
+                        <td class="border border-gray-800 p-2 align-top">Convive y participa democráticamente en la búsqueda del bien común.</td>
+                        <td class="border border-gray-800 p-2 align-top">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Delibera sobre asuntos públicos.</li>
+                                <li>Construye normas y asume acuerdos y leyes.</li>
+                            </ul>
+                        </td>
+                        <td class="border border-gray-800 p-2 align-top">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Argumenta con fundamentos claros su postura sobre la importancia de las normas de convivencia para proteger los derechos de todos.</li>
+                                <li>Escucha activamente y respeta las opiniones divergentes de sus compañeros durante el debate grupal y la asamblea.</li>
+                                <li>Participa democráticamente en la toma de decisiones por consenso para construir acuerdos orientados al bien común y al diálogo reparador.</li>
+                            </ul>
+                        </td>
+                        <td class="border border-gray-800 p-2 align-top">
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Participación oral con argumentos respetuosos durante el debate y la asamblea de aula.</li>
+                                <li>Elaboración conjunta y firma del cartel de acuerdos de convivencia democrática del aula.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 5. DESARROLLO DE LA SESIÓN -->
+        <section class="mb-8">
+            <h2 class="font-bold text-lg mb-2 uppercase">5. Desarrollo de la Sesión (Estrategia activa: Deliberación)</h2>
+            <table class="w-full border-collapse border border-gray-800 text-sm">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/6">Momentos</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center">Estrategias</th>
+                        <th class="border border-gray-800 p-2 font-bold uppercase text-center w-1/6">Duración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-800 p-2 font-bold text-center align-middle uppercase">1. Inicio</td>
+                        <td class="border border-gray-800 p-2 align-top">
+                            <ul class="list-disc pl-4 space-y-2">
+                                <li><strong>Problematización:</strong> Se presenta y dramatiza brevemente el caso de un aula donde las normas han sido impuestas unilateralmente y se aplican sanciones sin dar oportunidad de réplica. A partir de ello, se apertura el diálogo formulando la pregunta central de debate: <em>"¿Cómo nos sentimos cuando nos imponen reglas y nos sancionan sin escucharnos?"</em>.</li>
+                                <li><strong>Rescate de saberes previos:</strong> Los estudiantes expresan libremente sus emociones, vivencias y percepciones mediante lluvia de ideas, identificando qué ocurre en el grupo cuando no existe escucha activa ni derecho a la participación.</li>
+                                <li><strong>Conflicto cognitivo:</strong> Se plantea la interrogante retadora: <em>¿Las normas sirven únicamente para castigar a quienes se equivocan o deberían servir para cuidar nuestros derechos y convivir en armonía?</em></li>
+                                <li><strong>Propósito y organización:</strong> Se comunica el propósito de la sesión, los criterios de evaluación y se organizan las pautas de escucha respetuosa y turnos de palabra para llevar a cabo la deliberación.</li>
+                            </ul>
+                        </td>
+                        <td class="border border-gray-800 p-2 text-center align-middle">15 min</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-800 p-2 font-bold text-center align-middle uppercase">2. Desarrollo</td>
+                        <td class="border border-gray-800 p-2 align-top">
+                            <ul class="list-decimal pl-4 space-y-2">
+                                <li><strong>Análisis de información:</strong> Se dialoga y revisa colaborativamente información clave acerca del verdadero sentido de las normas de convivencia en una comunidad democrática, contrastando el enfoque punitivo (basado solo en castigar) frente al enfoque formativo y de derechos (orientado a proteger la dignidad, el respeto mutuo y el bien común).</li>
+                                <li><strong>Intercambio y posicionamiento:</strong> Organizados en pequeños grupos de trabajo, los estudiantes debaten sobre las consecuencias de acatar normas impuestas por autoridad frente a los beneficios de construir normas acordadas por todos. Cada integrante formula y defiende su postura con razones claras, practicando la escucha activa y el respeto ante los puntos de vista divergentes de sus compañeros, y registrando sus conclusiones grupales en hojas de colores.</li>
+                            </ul>
+                        </td>
+                        <td class="border border-gray-800 p-2 text-center align-middle">55 min</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-800 p-2 font-bold text-center align-middle uppercase">3. Cierre</td>
+                        <td class="border border-gray-800 p-2 align-top">
+                            <ul class="list-disc pl-4 space-y-2">
+                                <li><strong>Decisión y consensos:</strong> Reunidos en asamblea general de aula, los representantes exponen sus argumentos y los estudiantes deliberan conjuntamente para proponer, someter a votación democrática y redactar colectivamente en un papelógrafo su propio cartel de acuerdos de convivencia. Asimismo, instituyen de común acuerdo un protocolo de diálogo y reflexión reparadora previo a cualquier medida correctiva o sanción.</li>
+                                <li><strong>Evaluación y Metacognición:</strong> Se valora el compromiso democrático demostrado durante la asamblea y se reflexiona mediante las preguntas: <em>¿Qué aprendimos hoy sobre la importancia de deliberar antes de tomar decisiones colectivas? ¿Cómo nos ayudó escuchar las opiniones diferentes a las nuestras? ¿Por qué es más valioso cumplir acuerdos que nosotros mismos hemos construido?</em></li>
+                            </ul>
+                        </td>
+                        <td class="border border-gray-800 p-2 text-center align-middle">20 min</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- 6. MATERIALES Y RECURSOS -->
+        <section class="mb-6">
+            <h2 class="font-bold text-lg uppercase mb-2">6. Materiales y Recursos</h2>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>Papelógrafos y plumones de diversos colores.</li>
+                <li>Hojas de colores para el registro de argumentos y propuestas grupales.</li>
+                <li>Cinta masking tape.</li>
+                <li>Pizarra y plumones acrílicos.</li>
+            </ul>
+        </section>
+
+        <!-- 7. INSTRUMENTOS DE EVALUACIÓN -->
+        <section class="mb-12">
+            <h2 class="font-bold text-lg uppercase mb-2">7. Instrumentos de Evaluación</h2>
+            <ul class="list-disc pl-5 space-y-1">
+                <li>Lista de cotejo.</li>
+            </ul>
+        </section>
+
+        <!-- ANEXO: LISTA DE COTEJO -->
+        <section class="mb-6 break-before-page">
+            <h2 class="font-bold text-lg uppercase text-center mb-4">Anexo: Lista de Cotejo</h2>
+            <table class="w-full border-collapse border border-gray-800 text-sm">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="border border-gray-800 p-2 font-bold text-center w-12">N°</th>
+                        <th class="border border-gray-800 p-2 font-bold text-center">Nombres y Apellidos</th>
+                        <th class="border border-gray-800 p-2 font-bold text-center w-24 text-xs">Criterio 1: Argumenta su postura sobre la importancia de las normas para el bien común. (Sí/No)</th>
+                        <th class="border border-gray-800 p-2 font-bold text-center w-24 text-xs">Criterio 2: Escucha activamente y respeta las opiniones divergentes en el debate. (Sí/No)</th>
+                        <th class="border border-gray-800 p-2 font-bold text-center w-24 text-xs">Criterio 3: Participa en la asamblea proponiendo y votando acuerdos democráticos. (Sí/No)</th>
+                        <th class="border border-gray-800 p-2 font-bold text-center w-24 text-xs">Criterio 4: Asume el compromiso de respetar el cartel de acuerdos y el diálogo previo. (Sí/No)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-800 p-2 text-center h-8">1</td>
+                        <td class="border border-gray-800 p-2"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-800 p-2 text-center h-8">2</td>
+                        <td class="border border-gray-800 p-2"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-800 p-2 text-center h-8">3</td>
+                        <td class="border border-gray-800 p-2"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-800 p-2 text-center h-8">4</td>
+                        <td class="border border-gray-800 p-2"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-800 p-2 text-center h-8">5</td>
+                        <td class="border border-gray-800 p-2"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                        <td class="border border-gray-800 p-2 text-center"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+</body>
+</html>
