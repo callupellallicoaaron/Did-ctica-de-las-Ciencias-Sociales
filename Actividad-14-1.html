@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Propuesta Didáctica STEAM - Grupo 9</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#dcfce7',
+                            DEFAULT: '#16a34a',
+                            dark: '#14532d',
+                        },
+                        steam: {
+                            s: '#10b981', // Emerald
+                            t: '#3b82f6', // Blue
+                            e: '#f59e0b', // Amber
+                            a: '#ec4899', // Pink
+                            m: '#8b5cf6', // Violet
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles and animations */
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+        .hero-pattern {
+            background-color: #16a34a;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Accordion transition */
+        .accordion-content {
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.active {
+            max-height: 500px; /* Arbitrary large max-height */
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-button.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Hero Section -->
+    <header class="hero-pattern text-white pt-16 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-20">
+            <svg width="400" height="400" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+            </svg>
+        </div>
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold tracking-wide mb-6 uppercase border border-white/40">
+                Grupo 9: Callupe Aaron • Espinoza Rocio • Inga Estefany • Sanchez Ruth
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-md">
+                Matriz de Propuesta Didáctica <span class="text-yellow-300">STEAM</span>
+            </h1>
+            <p class="text-xl sm:text-2xl font-medium text-green-50 max-w-3xl mx-auto">
+                Transformando nuestra escuela en un ecosistema sostenible e interactivo.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20 pb-20">
+        
+        <!-- Context & Problem Section -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-100 flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3 border-r border-gray-200 pr-0 md:pr-8">
+                <div class="flex items-center gap-3 mb-4 text-brand">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <h2 class="text-2xl font-bold">Contexto</h2>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    <strong>Lugar:</strong> Áreas de recreo de la I.E.P. Cristo Te Ama en Tarma.
+                </p>
+                <p class="text-gray-600 mb-4">
+                    <strong>Público Objetivo:</strong> Estudiantes de 5º y 6º grado de primaria (Ciclo V).
+                </p>
+                <div class="bg-red-50 text-red-700 p-4 rounded-xl border border-red-100">
+                    <strong>Problema Ambiental:</strong> Acumulación y mal manejo de residuos sólidos (envolturas, botellas plásticas) afectando las áreas verdes locales.
+                </div>
+            </div>
+            <div class="md:w-2/3 flex flex-col justify-center">
+                <h3 class="text-sm uppercase tracking-widest text-brand-dark font-bold mb-2">Pregunta Retadora</h3>
+                <div class="text-2xl md:text-3xl font-bold text-gray-800 leading-tight bg-gradient-to-r from-brand-light to-white p-6 rounded-2xl border-l-4 border-brand">
+                    ¿Cómo podemos diseñar un sistema interactivo y ecológico para clasificar, reducir y aprovechar los residuos sólidos generados durante la jornada escolar?
+                </div>
+            </div>
+        </section>
+
+        <!-- STEAM Framework Section -->
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Aporte a la Solución (Enfoque STEAM)</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Cada disciplina contribuye de manera única para resolver nuestra problemática ambiental escolar.</p>
+        </div>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            
+            <!-- Science -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-steam-s card-hover transition-all duration-300">
+                <div class="w-14 h-14 bg-steam-s bg-opacity-10 rounded-2xl flex items-center justify-center text-steam-s mb-4">
+                    <span class="text-2xl font-black">S</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Ciencia</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Investigar los tipos de residuos generados en el colegio, observar su tiempo de descomposición en el suelo de Tarma y analizar su impacto en los ecosistemas locales.
+                </p>
+            </div>
+
+            <!-- Technology -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-steam-t card-hover transition-all duration-300">
+                <div class="w-14 h-14 bg-steam-t bg-opacity-10 rounded-2xl flex items-center justify-center text-steam-t mb-4">
+                    <span class="text-2xl font-black">T</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Tecnología</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Desarrollar una pequeña aplicación web interactiva (usando HTML/CSS/JS) o utilizar hojas de cálculo para registrar diariamente los tipos de residuos recolectados y proyectar estadísticas.
+                </p>
+            </div>
+
+            <!-- Engineering -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-steam-e card-hover transition-all duration-300">
+                <div class="w-14 h-14 bg-steam-e bg-opacity-10 rounded-2xl flex items-center justify-center text-steam-e mb-4">
+                    <span class="text-2xl font-black">E</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Ingeniería</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Diseñar, planificar y construir contenedores de segregación modulares o ecoladrillos utilizando las mismas botellas plásticas recuperadas del patio.
+                </p>
+            </div>
+
+            <!-- Art -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-steam-a card-hover transition-all duration-300 lg:col-start-1 lg:col-end-2 lg:translate-x-1/2">
+                <div class="w-14 h-14 bg-steam-a bg-opacity-10 rounded-2xl flex items-center justify-center text-steam-a mb-4">
+                    <span class="text-2xl font-black">A</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Arte</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Crear señaléticas visualmente atractivas con arte pixelado en cuadrículas para identificar cada contenedor, y diseñar afiches de concientización para la comunidad educativa.
+                </p>
+            </div>
+
+            <!-- Mathematics -->
+            <div class="bg-white rounded-2xl p-6 shadow-lg border-t-4 border-steam-m card-hover transition-all duration-300 lg:col-start-2 lg:col-end-3 lg:translate-x-1/2">
+                <div class="w-14 h-14 bg-steam-m bg-opacity-10 rounded-2xl flex items-center justify-center text-steam-m mb-4">
+                    <span class="text-2xl font-black">M</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Matemática</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Pesar los residuos recolectados semanalmente, calcular los porcentajes de reducción de basura suelta y representar los volúmenes mediante gráficos de barras.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Experience Phases (Timeline) -->
+        <section class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl text-white mb-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4 text-white">Fases de la Experiencia</h2>
+                <p class="text-gray-400">Un proceso cíclico de aprendizaje y acción.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Line background for desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-700 -translate-y-1/2 z-0"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+                    
+                    <!-- Phase 1 -->
+                    <div class="relative flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-gray-800 border-4 border-brand text-brand font-bold text-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 shadow-[0_0_15px_rgba(22,163,74,0.5)] z-10">
+                            1
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-center text-white">Identificar</h4>
+                        <p class="text-sm text-gray-400 text-center">
+                            Recorrido por el colegio tras el recreo para observar residuos y formular la pregunta retadora.
+                        </p>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="relative flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-gray-800 border-4 border-steam-t text-steam-t font-bold text-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 shadow-[0_0_15px_rgba(59,130,246,0.5)] z-10">
+                            2
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-center text-white">Investigar</h4>
+                        <p class="text-sm text-gray-400 text-center">
+                            Indagación sobre clasificación, formulación de hipótesis sobre generación mensual de basura y análisis de datos iniciales.
+                        </p>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="relative flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-gray-800 border-4 border-steam-e text-steam-e font-bold text-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 shadow-[0_0_15px_rgba(245,158,11,0.5)] z-10">
+                            3
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-center text-white">Diseñar y Crear</h4>
+                        <p class="text-sm text-gray-400 text-center">
+                            Construcción de contenedores reciclados y programación del registro digital, integrando ciencia y tecnología.
+                        </p>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="relative flex flex-col items-center group">
+                        <div class="w-16 h-16 rounded-full bg-gray-800 border-4 border-steam-a text-steam-a font-bold text-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110 shadow-[0_0_15px_rgba(236,72,153,0.5)] z-10">
+                            4
+                        </div>
+                        <h4 class="text-lg font-bold mb-2 text-center text-white">Probar y Mejorar</h4>
+                        <p class="text-sm text-gray-400 text-center">
+                            Instalación por una semana, evaluación de uso, recolección de evidencias y ajuste de señalética o diseño.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflections & Conclusions (Accordions) -->
+        <section class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Reflexiones y Conclusiones del Aprendizaje</h2>
+                <p class="text-gray-600">Evaluación de la experiencia y aprendizajes obtenidos por el equipo.</p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- Accordion Item 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors" onclick="toggleAccordion('acc1', this)">
+                        <span class="font-bold text-lg text-brand-dark flex items-center gap-3">
+                            <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Respuestas al reto y validación de la solución
+                        </span>
+                        <svg class="w-5 h-5 text-gray-500 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc1" class="accordion-content bg-gray-50 px-6">
+                        <div class="py-4 space-y-4 text-gray-700">
+                            <p><strong>¿Qué aportó cada área?</strong> La ciencia brindó el fundamento ecológico; la tecnología facilitó el seguimiento de datos; la ingeniería materializó la solución física (contenedores); el arte aseguró que el proyecto comunicara el mensaje de forma atractiva; y la matemática otorgó el rigor para medir el impacto real.</p>
+                            <p><strong>¿Qué evidencias muestran que la solución funciona?</strong> Las evidencias son tangibles: una disminución medible en los kilos de basura esparcida por el colegio (registrada matemáticamente), el uso activo de los contenedores construidos y el registro digital actualizado diariamente por los estudiantes.</p>
+                            <p><strong>¿Qué cambiarían después de probarla?</strong> Podría ser necesario reubicar los contenedores en zonas de mayor tránsito, rediseñar las tapas si resultan incómodas para los niños más pequeños, o mejorar la interfaz del registro web para que sea más rápida de llenar durante el recreo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <button class="accordion-button w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none hover:bg-gray-50 transition-colors" onclick="toggleAccordion('acc2', this)">
+                        <span class="font-bold text-lg text-brand-dark flex items-center gap-3">
+                            <svg class="w-6 h-6 text-steam-t" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                            Conclusiones de la práctica docente
+                        </span>
+                        <svg class="w-5 h-5 text-gray-500 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="acc2" class="accordion-content bg-gray-50 px-6">
+                        <div class="py-4 space-y-4 text-gray-700">
+                            <p><strong>Desafíos al articular las 5 áreas:</strong> El reto principal radica en lograr un equilibrio temporal y cognitivo para que el proyecto no se desvíe únicamente hacia la manualidad (arte) o la construcción (ingeniería), asegurando que el análisis de datos (matemática) y la comprensión del fenómeno ecológico (ciencia) mantengan el mismo peso a lo largo de la sesión didáctica.</p>
+                            <p><strong>Aplicación en la futura labor docente:</strong> Este diseño permite transformar las sesiones teóricas en experiencias de aprendizaje basado en proyectos. Al aplicarlo en las aulas de educación básica, los estudiantes dejan de ser receptores pasivos y asumen roles de pequeños científicos e ingenieros, enfrentando problemáticas reales de su propia comunidad escolar y desarrollando un pensamiento crítico y colaborativo indispensable para el siglo XXI.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12 py-8 text-center text-gray-500 text-sm">
+        <p>Proyecto STEAM - Grupo 9 &copy; 2026</p>
+        <p class="mt-1">I.E.P. Cristo Te Ama - Tarma</p>
+    </footer>
+
+    <!-- Interactive Script for Accordions -->
+    <script>
+        function toggleAccordion(id, buttonElement) {
+            const content = document.getElementById(id);
+            
+            // Toggle active class on button (for icon rotation)
+            buttonElement.classList.toggle('active');
+            
+            // Toggle active class on content (for expanding/collapsing)
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                content.style.paddingTop = '0px';
+                content.style.paddingBottom = '0px';
+            } else {
+                content.classList.add('active');
+                content.style.paddingTop = '1rem';
+                content.style.paddingBottom = '1rem';
+            }
+        }
+
+        // Open the first accordion by default on load for better UX
+        window.addEventListener('DOMContentLoaded', () => {
+            const firstButton = document.querySelector('.accordion-button');
+            if(firstButton) {
+                toggleAccordion('acc1', firstButton);
+            }
+        });
+    </script>
+</body>
+</html>
