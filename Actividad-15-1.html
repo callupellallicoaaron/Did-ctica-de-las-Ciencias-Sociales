@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión de Aprendizaje - Personal Social</title>
+    <!-- Tailwind CSS para estilos modernos y responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans (títulos) e Inter (lectura limpia) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Configuración general de tipografía y fondo de pantalla */
+        body {
+            background-color: #e2e8f0;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: #1e293b;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        h1, h2, h3, th {
+            font-family: 'Plus Jakarta Sans', 'Inter', Arial, sans-serif;
+        }
+
+        /* Contenedor principal simulando hoja A4 */
+        .a4-container {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 18mm 18mm 20mm 18mm;
+            margin: 2rem auto 3rem auto;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.15), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+            border-top: 6px solid #0e7490;
+        }
+
+        /* Estilo uniforme para encabezados de sección */
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #0f172a;
+            border-left: 4px solid #0e7490;
+            padding-left: 0.75rem;
+            padding-top: 0.15rem;
+            padding-bottom: 0.15rem;
+            margin-bottom: 0.85rem;
+            background: linear-gradient(90deg, #f0f9ff 0%, rgba(255, 255, 255, 0) 85%);
+        }
+
+        /* Tablas académicas estilizadas */
+        .academic-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #cbd5e1;
+        }
+
+        .academic-table thead tr {
+            background-color: #0f3d56;
+            color: #ffffff;
+        }
+
+        .academic-table th {
+            border: 1px solid #0c3145;
+            padding: 0.6rem 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .academic-table td {
+            border: 1px solid #cbd5e1;
+            padding: 0.65rem 0.7rem;
+            vertical-align: top;
+        }
+
+        .academic-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Reglas específicas para impresión y exportación a PDF */
+        @media print {
+            @page {
+                size: A4;
+                margin: 14mm;
+            }
+            body {
+                background: #ffffff;
+                background-image: none;
+            }
+            .a4-container {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+                border-top: none;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .break-before-page {
+                page-break-before: always;
+                break-before: page;
+            }
+            tr {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="a4-container">
+        <!-- Encabezado y Título principal -->
+        <header class="text-center pb-5 mb-7 border-b-2 border-slate-200">
+            <h1 class="text-xl font-extrabold uppercase tracking-wide text-[#0f3d56] mb-2">
+                Sesión de Aprendizaje — Área de Personal Social
+            </h1>
+            <div class="w-20 h-1 bg-[#0e7490] mx-auto rounded-full mb-3"></div>
+            <h2 class="text-base font-bold text-slate-700 leading-snug max-w-2xl mx-auto">
+                “Dialogamos y nos ponemos de acuerdo para resolver nuestros conflictos”
+            </h2>
+        </header>
+
+        <!-- I. DATOS INFORMATIVOS -->
+        <section class="mb-6">
+            <h2 class="section-title">I. Datos Informativos</h2>
+            <div class="bg-slate-50 border border-slate-200 rounded-lg px-5 py-4">
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-slate-800 marker:text-[#0e7490]">
+                    <li><span class="font-bold text-slate-900">Institución Educativa:</span> I.E.P. "Cristo Te Ama"</li>
+                    <li><span class="font-bold text-slate-900">Nivel y Grado:</span> Educación Primaria – 4.° Grado (Ciclo IV)</li>
+                    <li><span class="font-bold text-slate-900">Área Curricular:</span> Personal Social</li>
+                    <li><span class="font-bold text-slate-900">Temática:</span> Resolución pacífica de conflictos en la convivencia escolar</li>
+                    <li><span class="font-bold text-slate-900">Duración:</span> 90 minutos</li>
+                    <li>
+                        <span class="font-bold text-slate-900">Docentes (Equipo):</span>
+                        <ul class="list-disc ml-6 mt-1 space-y-0.5 marker:text-slate-400">
+                            <li>Callupe Llallico, Aaron Sixto</li>
+                            <li>Espinoza Soto, Rocio Grace</li>
+                            <li>Inga Moreno, Estefany Yeraldin</li>
+                            <li>Sánchez Verastegui, Ruth Ester</li>
+                        </ul>
+                    </li>
+                    <li><span class="font-bold text-slate-900">Fecha:</span> 20 de noviembre de 2026</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- II. SITUACIÓN SIGNIFICATIVA -->
+        <section class="mb-6">
+            <h2 class="section-title">II. Situación Significativa</h2>
+            <div class="bg-[#f0f9ff]/60 border border-sky-200/80 border-l-4 border-l-[#0e7490] rounded-r-lg px-5 py-4 text-sm text-slate-800 space-y-2.5 text-justify">
+                <p>Durante las últimas semanas, en el aula de 4.° grado de la I.E.P. "Cristo Te Ama" se ha observado que, al realizar trabajos en equipo y compartir juegos en el recreo, surgen desacuerdos frecuentes entre los estudiantes. En varias ocasiones, algunos niños reaccionan levantando la voz, quitándose los materiales o excluyendo a sus compañeros del juego. Esta situación evidencia la necesidad de aprendizaje de fortalecer el manejo constructivo de conflictos y el diálogo respetuoso para garantizar un ambiente armonioso.</p>
+                <p class="font-semibold text-[#0f3d56]">
+                    Reto: ¿Por qué ocurren estos conflictos en nuestra aula y qué pasos podemos seguir para resolverlos de manera pacífica, justa y respetuosa?
+                </p>
+            </div>
+        </section>
+
+        <!-- III. PROPÓSITOS Y EVIDENCIAS DE APRENDIZAJE -->
+        <section class="mb-6">
+            <h2 class="section-title">III. Propósitos y Evidencias de Aprendizaje</h2>
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-xs border-none">
+                    <thead>
+                        <tr>
+                            <th class="uppercase text-center w-[24%]">Competencias y Capacidades del Área</th>
+                            <th class="uppercase text-center w-[20%]">Desempeños</th>
+                            <th class="uppercase text-center w-[26%]">Criterios de Evaluación</th>
+                            <th class="uppercase text-center w-[18%]">Evidencia de Aprendizaje</th>
+                            <th class="uppercase text-center w-[12%]">Instrumento de Evaluación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left">
+                                <p class="font-bold text-[#0f3d56] mb-1.5">Convive y participa democráticamente en la búsqueda del bien común.</p>
+                                <p class="font-semibold text-slate-800 mb-1">Capacidades:</p>
+                                <ul class="list-disc pl-3.5 space-y-1 marker:text-[#0e7490]">
+                                    <li>Interactúa con todas las personas.</li>
+                                    <li>Maneja conflictos de manera constructiva.</li>
+                                    <li>Participa en acciones que promueven el bienestar común.</li>
+                                </ul>
+                            </td>
+                            <td class="text-justify">
+                                Propone alternativas de solución a los conflictos por los que atraviesa: recurre al diálogo y a la intervención de mediadores si lo cree necesario.
+                            </td>
+                            <td>
+                                <ul class="list-disc pl-3.5 space-y-1.5 marker:text-[#0e7490]">
+                                    <li>Identifica las causas y emociones presentes en un conflicto escolar.</li>
+                                    <li>Propone alternativas de solución pacíficas basadas en el diálogo y la escucha activa.</li>
+                                    <li>Asume compromisos concretos para aplicar estrategias de resolución de conflictos en el aula.</li>
+                                </ul>
+                            </td>
+                            <td class="text-justify">
+                                Papelógrafo grupal con una ruta de pasos para resolver conflictos (<em>"Nuestra Ruta del Diálogo"</em>) y tarjeta de compromiso personal.
+                            </td>
+                            <td class="text-center !align-middle font-semibold text-[#0f3d56]">
+                                Lista de cotejo
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- IV. ENFOQUE TRANSVERSAL -->
+        <section class="mb-6">
+            <h2 class="section-title">IV. Enfoque Transversal</h2>
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-sm border-none">
+                    <thead>
+                        <tr>
+                            <th class="uppercase text-center w-1/4">Enfoque Transversal</th>
+                            <th class="uppercase text-center w-1/4">Valor</th>
+                            <th class="uppercase text-center w-1/2">Acciones Observables</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold text-center !align-middle text-[#0f3d56]">Enfoque Orientación al Bien Común</td>
+                            <td class="text-center !align-middle font-medium text-slate-700">Empatía</td>
+                            <td class="text-justify">Los estudiantes escuchan con respeto los puntos de vista de sus compañeros ante un desacuerdo y buscan soluciones que beneficien a todo el grupo.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- V. SECUENCIA DIDÁCTICA -->
+        <section class="mb-6">
+            <h2 class="section-title">V. Secuencia Didáctica (Procesos Didácticos de Personal Social)</h2>
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-sm border-none">
+                    <thead>
+                        <tr>
+                            <th class="uppercase text-center w-[15%]">Momentos</th>
+                            <th class="uppercase text-center">Actividades y/o Estrategias</th>
+                            <th class="uppercase text-center w-[14%]">Tiempo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- INICIO -->
+                        <tr>
+                            <td class="font-bold text-center !align-middle uppercase text-[#0f3d56] bg-slate-50/70">Inicio</td>
+                            <td class="text-justify">
+                                <ul class="list-disc pl-4 space-y-2 marker:text-[#0e7490]">
+                                    <li><strong class="text-slate-900">Motivación:</strong> El docente presenta una breve dramatización o historieta corta sobre dos estudiantes que discuten porque ambos quieren usar la única pelota del aula al mismo tiempo.</li>
+                                    <li><strong class="text-slate-900">Saberes previos:</strong> Se dialoga mediante preguntas: <em class="text-[#0f3d56]">¿Alguna vez les ha pasado algo similar en el recreo o en clase? ¿Cómo reaccionaron? ¿Cómo se sintieron después?</em></li>
+                                    <li><strong class="text-slate-900">Conflicto cognitivo:</strong> <em class="text-[#0f3d56]">¿Es posible resolver un problema cuando dos personas quieren cosas distintas sin que nadie salga lastimado?</em></li>
+                                    <li><strong class="text-slate-900">Propósito de la sesión:</strong> El docente comunica el propósito: <em class="text-[#0f3d56]">"Hoy aprenderemos a analizar conflictos cotidianos y a proponer pasos basados en el diálogo para resolverlos pacíficamente"</em>. Se acuerdan dos normas de convivencia para la sesión (levantar la mano para opinar y escuchar sin interrumpir).</li>
+                                </ul>
+                            </td>
+                            <td class="text-center !align-middle">
+                                <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-sky-50 text-[#0f3d56] border border-sky-200 whitespace-nowrap">15 min</span>
+                            </td>
+                        </tr>
+
+                        <!-- DESARROLLO -->
+                        <tr>
+                            <td class="font-bold text-center !align-middle uppercase text-[#0f3d56] bg-slate-50/70">Desarrollo</td>
+                            <td class="text-justify space-y-3">
+                                <div>
+                                    <p class="font-bold text-[#0f3d56] mb-1">1. Problematización</p>
+                                    <ul class="list-disc pl-4 space-y-1.5 marker:text-[#0e7490]">
+                                        <li>Organizados en equipos de cuatro integrantes, los estudiantes reciben una tarjeta con un caso cotidiano del aula (por ejemplo: un equipo que no se pone de acuerdo sobre quién expondrá, o un compañero que interrumpe el juego de otros).</li>
+                                        <li>Cada grupo responde en su cuaderno: <em class="text-[#0f3d56]">¿Cuál es el problema real? ¿Qué emociones sienten los involucrados? ¿Qué pasaría si deciden resolverlo gritando o ignorándose?</em></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#0f3d56] mb-1">2. Análisis de información</p>
+                                    <ul class="list-disc pl-4 space-y-1.5 marker:text-[#0e7490]">
+                                        <li>El docente entrega una ficha informativa breve titulada <strong>"Los 4 pasos para resolver conflictos"</strong> (1. Mantener la calma, 2. Escuchar al otro sin interrumpir, 3. Proponer soluciones donde ambos ganen, 4. Elegir un acuerdo y cumplirlo).</li>
+                                        <li>Los estudiantes leen la ficha en equipo, contrastan sus respuestas iniciales con la información leída y analizan cómo aplicar esos pasos al caso que les tocó.</li>
+                                        <li>El docente acompaña a cada grupo, aclarando dudas y orientando la reflexión sobre la importancia de acudir a un mediador (docente o compañero) cuando no logran calmarse.</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-[#0f3d56] mb-1">3. Toma de decisiones</p>
+                                    <ul class="list-disc pl-4 space-y-1.5 marker:text-[#0e7490]">
+                                        <li>Cada equipo diseña en un papelógrafo <strong>"Nuestra Ruta del Diálogo"</strong>, planteando la solución pacífica al caso asignado y los acuerdos que aplicarán en el aula.</li>
+                                        <li>Un representante de cada equipo socializa su propuesta frente a la clase.</li>
+                                        <li>De manera individual, cada estudiante escribe en una tarjeta de cartulina un compromiso personal (ejemplo: <em class="text-[#0f3d56]">"Cuando me moleste en un juego, respiraré profundo y diré cómo me siento sin gritar"</em>) y lo pega en el mural del aula.</li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td class="text-center !align-middle">
+                                <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-sky-50 text-[#0f3d56] border border-sky-200 whitespace-nowrap">60 min</span>
+                            </td>
+                        </tr>
+
+                        <!-- CIERRE -->
+                        <tr>
+                            <td class="font-bold text-center !align-middle uppercase text-[#0f3d56] bg-slate-50/70">Cierre</td>
+                            <td class="text-justify">
+                                <ul class="list-disc pl-4 space-y-2 marker:text-[#0e7490]">
+                                    <li><strong class="text-slate-900">Metacognición:</strong> El docente promueve la reflexión grupal con las siguientes preguntas: <em class="text-[#0f3d56]">¿Qué aprendimos hoy? ¿Qué paso para resolver conflictos te parece más difícil de aplicar? ¿Para qué nos servirá lo aprendido en nuestra vida diaria en el colegio y en casa?</em></li>
+                                    <li><strong class="text-slate-900">Evaluación:</strong> Se verifica el cumplimiento de los acuerdos de la sesión y el docente aplica la lista de cotejo sobre las evidencias presentadas.</li>
+                                </ul>
+                            </td>
+                            <td class="text-center !align-middle">
+                                <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold bg-sky-50 text-[#0f3d56] border border-sky-200 whitespace-nowrap">15 min</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- VI. RECURSOS Y MATERIALES -->
+        <section class="mb-10">
+            <h2 class="section-title">VI. Recursos y Materiales</h2>
+            <div class="bg-slate-50 border border-slate-200 rounded-lg px-5 py-3.5">
+                <ul class="list-disc pl-5 space-y-1.5 text-sm text-slate-800 marker:text-[#0e7490]">
+                    <li>Historieta o imágenes impresas sobre un conflicto escolar.</li>
+                    <li>Tarjetas con casos cotidianos de convivencia escolar.</li>
+                    <li>Ficha informativa impresa: <em>"Los 4 pasos para resolver conflictos"</em>.</li>
+                    <li>Papelógrafos, plumones de colores, cinta adhesiva y tarjetas de cartulina para los compromisos personales.</li>
+                    <li>Lista de cotejo impresa para el docente.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ANEXO: LISTA DE COTEJO -->
+        <section class="mb-4 break-before-page">
+            <div class="text-center mb-5 pb-3 border-b border-slate-200">
+                <h2 class="font-extrabold text-lg uppercase tracking-wide text-[#0f3d56]">
+                    Anexo: Lista de Cotejo (Personal Social)
+                </h2>
+                <div class="w-16 h-1 bg-[#0e7490] mx-auto rounded-full mt-2"></div>
+            </div>
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-sm border-none">
+                    <thead>
+                        <tr>
+                            <th class="text-center w-10">N°</th>
+                            <th class="text-center">Nombres y Apellidos</th>
+                            <th class="text-center w-36 text-[11px] leading-tight">Criterio 1: Identifica las causas y emociones presentes en un conflicto escolar. (Sí/No)</th>
+                            <th class="text-center w-36 text-[11px] leading-tight">Criterio 2: Propone alternativas de solución pacíficas basadas en el diálogo y la escucha activa. (Sí/No)</th>
+                            <th class="text-center w-36 text-[11px] leading-tight">Criterio 3: Asume compromisos concretos para aplicar estrategias de resolución de conflictos. (Sí/No)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center font-semibold text-slate-600 h-9 !align-middle">1</td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-semibold text-slate-600 h-9 !align-middle">2</td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-semibold text-slate-600 h-9 !align-middle">3</td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-semibold text-slate-600 h-9 !align-middle">4</td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-semibold text-slate-600 h-9 !align-middle">5</td>
+                            <td></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha - Evaluamos Nuestros Recursos (Personal Social)</title>
+    <!-- Tailwind CSS para estilos modernos y responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans (títulos) e Inter (lectura limpia) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Configuración general de tipografía y fondo de pantalla */
+        body {
+            background-color: #e2e8f0;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Inter', Arial, sans-serif;
+            font-size: 10.5pt;
+            line-height: 1.5;
+            color: #1e293b;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        h1, h2, h3, th {
+            font-family: 'Plus Jakarta Sans', 'Inter', Arial, sans-serif;
+        }
+
+        /* Contenedor principal simulando hoja A4 */
+        .a4-container {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 18mm 18mm 20mm 18mm;
+            margin: 2rem auto 3rem auto;
+            background: #ffffff;
+            border-radius: 6px;
+            box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.15), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+            border-top: 6px solid #0e7490;
+        }
+
+        /* Estilo uniforme para encabezados de sección */
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #0f172a;
+            border-left: 4px solid #0e7490;
+            padding-left: 0.75rem;
+            padding-top: 0.15rem;
+            padding-bottom: 0.15rem;
+            margin-bottom: 0.85rem;
+            background: linear-gradient(90deg, #f0f9ff 0%, rgba(255, 255, 255, 0) 85%);
+        }
+
+        /* Tablas académicas estilizadas */
+        .academic-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #cbd5e1;
+        }
+
+        .academic-table thead tr {
+            background-color: #0f3d56;
+            color: #ffffff;
+        }
+
+        .academic-table th {
+            border: 1px solid #0c3145;
+            padding: 0.6rem 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .academic-table td {
+            border: 1px solid #cbd5e1;
+            padding: 0.65rem 0.7rem;
+            vertical-align: top;
+        }
+
+        .academic-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Reglas específicas para impresión y exportación a PDF */
+        @media print {
+            @page {
+                size: A4;
+                margin: 14mm;
+            }
+            body {
+                background: #ffffff;
+                background-image: none;
+            }
+            .a4-container {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+                border-top: none;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .break-before-page {
+                page-break-before: always;
+                break-before: page;
+            }
+            tr {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="a4-container">
+        <!-- Encabezado y Título principal -->
+        <header class="text-center pb-5 mb-7 border-b-2 border-slate-200">
+            <h1 class="text-xl font-extrabold uppercase tracking-wide text-[#0f3d56] mb-2">
+                Ficha — Evaluamos Nuestros Recursos
+            </h1>
+            <div class="w-20 h-1 bg-[#0e7490] mx-auto rounded-full mb-3"></div>
+            <h2 class="text-sm font-semibold text-slate-600 uppercase tracking-wider">
+                Área de Personal Social • Educación Primaria
+            </h2>
+        </header>
+
+        <!-- CUADRO DE DATOS GENERALES DE LA FICHA -->
+        <section class="mb-7">
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-sm border-none">
+                    <tbody>
+                        <tr>
+                            <td class="w-1/2 bg-slate-50/70">
+                                <span class="block text-xs font-bold uppercase tracking-wide text-[#0f3d56] mb-1">Docentes (Equipo):</span>
+                                <ul class="list-disc pl-4 space-y-0.5 text-slate-800 marker:text-[#0e7490]">
+                                    <li>Callupe Llallico, Aaron Sixto</li>
+                                    <li>Espinoza Soto, Rocio Grace</li>
+                                    <li>Inga Moreno, Estefany Yeraldin</li>
+                                    <li>Sánchez Verastegui, Ruth Ester</li>
+                                </ul>
+                            </td>
+                            <td class="w-1/2">
+                                <span class="block text-xs font-bold uppercase tracking-wide text-[#0f3d56] mb-1">Título de la sesión:</span>
+                                <p class="font-semibold text-slate-800">“Dialogamos y nos ponemos de acuerdo para resolver nuestros conflictos”</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bg-slate-50/70">
+                                <span class="block text-xs font-bold uppercase tracking-wide text-[#0f3d56] mb-1">Grado y nivel educativo:</span>
+                                <p class="text-slate-800">4.° Grado de Educación Primaria (Ciclo IV) — I.E.P. "Cristo Te Ama"</p>
+                            </td>
+                            <td>
+                                <span class="block text-xs font-bold uppercase tracking-wide text-[#0f3d56] mb-1">Competencia de Personal Social:</span>
+                                <p class="font-semibold text-slate-800">Convive y participa democráticamente en la búsqueda del bien común.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="bg-[#f0f9ff]/60">
+                                <span class="block text-xs font-bold uppercase tracking-wide text-[#0f3d56] mb-1">Propósito de aprendizaje:</span>
+                                <p class="text-justify text-slate-800">
+                                    Que los estudiantes de 4.° grado analicen conflictos cotidianos ocurridos en el aula y en el recreo, y propongan alternativas de solución pacíficas basadas en el diálogo, la escucha activa y la intervención de mediadores, asumiendo compromisos concretos para fortalecer la convivencia armoniosa.
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ACTIVIDAD 1 -->
+        <section class="mb-7">
+            <h2 class="section-title">Actividad 1. Revisamos Nuestra Sesión</h2>
+            <div class="bg-[#f0f9ff]/60 border border-sky-200/80 border-l-4 border-l-[#0e7490] rounded-r-lg px-5 py-4 text-sm text-slate-800 space-y-2 text-justify">
+                <p class="font-bold text-[#0f3d56]">1. ¿Qué aprendizaje buscamos desarrollar en nuestros estudiantes?</p>
+                <p>
+                    Buscamos que los estudiantes desarrollen la capacidad de <strong>manejar conflictos de manera constructiva</strong> dentro de su entorno escolar. Específicamente, se espera que logren identificar las causas y emociones involucradas en los desacuerdos cotidianos (como discusiones durante trabajos grupales o juegos en el recreo), reconozcan las consecuencias negativas de reaccionar con gritos o exclusión, y apliquen estrategias concretas basadas en la autorregulación, el diálogo respetuoso, la escucha activa y la búsqueda de acuerdos justos donde todos ganen, recurriendo a un mediador cuando sea necesario.
+                </p>
+            </div>
+        </section>
+
+        <!-- ACTIVIDAD 2 -->
+        <section class="mb-7">
+            <h2 class="section-title">Actividad 2. Seleccionamos y Describimos Nuestros Recursos Didácticos</h2>
+            <p class="text-xs text-slate-600 mb-3 italic">
+                Recursos didácticos seleccionados para cada momento pedagógico de la sesión y su intencionalidad educativa:
+            </p>
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-xs border-none">
+                    <thead>
+                        <tr>
+                            <th class="uppercase text-center w-[13%]">Momento de la sesión</th>
+                            <th class="uppercase text-center w-[24%]">Materiales y/o recursos seleccionados</th>
+                            <th class="uppercase text-center w-[31%]">Descripción del recurso y características</th>
+                            <th class="uppercase text-center w-[32%]">¿Para qué lo utilizarán? (Finalidad pedagógica)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- INICIO -->
+                        <tr>
+                            <td class="font-bold text-center !align-middle uppercase text-[#0f3d56] bg-slate-50/70">Inicio</td>
+                            <td class="font-semibold text-slate-900">
+                                <ul class="list-disc pl-3.5 space-y-2 marker:text-[#0e7490]">
+                                    <li>Historieta o láminas ilustradas sobre un conflicto escolar.</li>
+                                    <li>Cartel de propósito y normas de convivencia.</li>
+                                </ul>
+                            </td>
+                            <td class="text-justify space-y-2">
+                                <p><strong>Historieta:</strong> Secuencia visual impresa en formato grande (A3) con 4 viñetas a color y diálogos breves que muestran a dos estudiantes discutiendo por la única pelota del aula.</p>
+                                <p><strong>Cartel:</strong> Tiras léxicas legibles colocadas en un lugar visible de la pizarra con el propósito de la sesión y dos acuerdos de diálogo.</p>
+                            </td>
+                            <td class="text-justify space-y-2">
+                                <p>Despertar el interés, activar saberes previos sobre situaciones reales de desacuerdo en el recreo y generar el conflicto cognitivo de forma visual y cercana.</p>
+                                <p>Orientar la atención de los estudiantes hacia la meta de aprendizaje y establecer un clima de respeto desde el inicio.</p>
+                            </td>
+                        </tr>
+
+                        <!-- DESARROLLO -->
+                        <tr>
+                            <td class="font-bold text-center !align-middle uppercase text-[#0f3d56] bg-slate-50/70">Desarrollo</td>
+                            <td class="font-semibold text-slate-900">
+                                <ul class="list-disc pl-3.5 space-y-2 marker:text-[#0e7490]">
+                                    <li>Tarjetas con casos cotidianos de convivencia escolar.</li>
+                                    <li>Ficha informativa impresa: <em>“Los 4 pasos para resolver conflictos”</em>.</li>
+                                    <li>Papelógrafos y plumones de colores (<em>“Nuestra Ruta del Diálogo”</em>).</li>
+                                    <li>Tarjetas de cartulina y mural del aula.</li>
+                                </ul>
+                            </td>
+                            <td class="text-justify space-y-2">
+                                <p><strong>Tarjetas de casos:</strong> Cartulinas plastificadas con relatos breves de conflictos frecuentes en 4.° grado (reparto de roles en equipo, interrupción de juegos, préstamo de útiles).</p>
+                                <p><strong>Ficha informativa:</strong> Hoja ilustrada con íconos y lenguaje sencillo que detalla 4 pasos claros (calma, escucha activa, propuestas ganar-ganar y acuerdos).</p>
+                                <p><strong>Papelógrafos y plumones:</strong> Soportes amplios para el trabajo colaborativo y representación gráfica.</p>
+                                <p><strong>Tarjetas de compromiso:</strong> Cartulinas de colores individuales para pegar en el mural del aula.</p>
+                            </td>
+                            <td class="text-justify space-y-2">
+                                <p><strong>Problematización:</strong> Permitir que los equipos analicen casos reales, identifiquen causas y reconozcan las emociones de los involucrados.</p>
+                                <p><strong>Análisis de información:</strong> Brindar un referente conceptual claro para contrastar sus ideas iniciales y aprender una estrategia estructurada de resolución pacífica y mediación.</p>
+                                <p><strong>Toma de decisiones:</strong> Facilitar la construcción colaborativa de soluciones, la socialización oral ante el aula y la interiorización de un compromiso personal visible en su entorno diario.</p>
+                            </td>
+                        </tr>
+
+                        <!-- CIERRE -->
+                        <tr>
+                            <td class="font-bold text-center !align-middle uppercase text-[#0f3d56] bg-slate-50/70">Cierre</td>
+                            <td class="font-semibold text-slate-900">
+                                <ul class="list-disc pl-3.5 space-y-2 marker:text-[#0e7490]">
+                                    <li>Tarjetas de preguntas de metacognición.</li>
+                                    <li>Lista de cotejo impresa.</li>
+                                </ul>
+                            </td>
+                            <td class="text-justify space-y-2">
+                                <p><strong>Tarjetas de metacognición:</strong> Carteles con preguntas reflexivas cortas y directas (<em>¿Qué aprendimos? ¿Qué paso es más difícil? ¿Para qué nos sirve?</em>).</p>
+                                <p><strong>Lista de cotejo:</strong> Instrumento de evaluación estructurado con los 3 criterios observables alineados al desempeño de la sesión.</p>
+                            </td>
+                            <td class="text-justify space-y-2">
+                                <p>Promover la reflexión consciente sobre el propio proceso de aprendizaje y su transferencia a la vida cotidiana en la escuela y el hogar.</p>
+                                <p>Recoger evidencias objetivas del logro de la competencia a partir de las producciones grupales e individuales para retroalimentar oportunamente.</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ACTIVIDAD 3 -->
+        <section class="mb-4 break-before-page">
+            <h2 class="section-title">Actividad 3. Analizamos la Pertinencia de Nuestros Recursos</h2>
+            <p class="text-xs text-slate-600 mb-3 italic">
+                Evaluación fundamentada del cumplimiento de las condiciones pedagógicas en los recursos seleccionados:
+            </p>
+            <div class="rounded-lg overflow-hidden border border-slate-300">
+                <table class="academic-table text-sm border-none">
+                    <thead>
+                        <tr>
+                            <th class="uppercase text-center w-[34%]">Criterios de análisis</th>
+                            <th class="uppercase text-center w-[66%]">¿Cómo se evidencia en nuestros recursos?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-bold text-[#0f3d56] bg-slate-50/70">
+                                Pertinencia curricular:<br>
+                                <span class="font-normal text-xs text-slate-600">¿Se relacionan con la competencia y el propósito de aprendizaje?</span>
+                            </td>
+                            <td class="text-justify">
+                                Sí. Todos los recursos responden directamente a la competencia <em>“Convive y participa democráticamente en la búsqueda del bien común”</em> y a su capacidad de manejar conflictos de manera constructiva. La historieta y las tarjetas de casos movilizan el análisis del problema; la ficha informativa aporta la estrategia del diálogo y la mediación; y el papelógrafo junto con las tarjetas de compromiso permiten recoger evidencias directas del propósito de aprendizaje mediante la lista de cotejo.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold text-[#0f3d56] bg-slate-50/70">
+                                Adecuación:<br>
+                                <span class="font-normal text-xs text-slate-600">¿Son apropiados para la edad y grado de los estudiantes?</span>
+                            </td>
+                            <td class="text-justify">
+                                Sí. Para niños de 4.° grado (9 a 10 años, Ciclo IV), el uso de historietas ilustradas, tarjetas con casos breves y una ficha con pasos numerados e íconos resulta comprensible y atractivo. El vocabulario es claro y concreto, acorde a su nivel de lectura y pensamiento operacional concreto, evitando textos extensos o abstractos que dificulten su comprensión.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold text-[#0f3d56] bg-slate-50/70">
+                                Contextualización:<br>
+                                <span class="font-normal text-xs text-slate-600">¿Se relacionan con su realidad y entorno?</span>
+                            </td>
+                            <td class="text-justify">
+                                Sí. Tanto la historieta inicial (disputa por una pelota en el recreo) como las tarjetas de casos (desacuerdos al elegir quién expone o al compartir materiales en el aula) reflejan situaciones reales observadas recientemente en la convivencia diaria del aula de 4.° grado de la I.E.P. "Cristo Te Ama", lo que facilita que los estudiantes se identifiquen con la problemática.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold text-[#0f3d56] bg-slate-50/70">
+                                Participación activa:<br>
+                                <span class="font-normal text-xs text-slate-600">¿Permiten que los estudiantes exploren, analicen, dialoguen o construyan aprendizajes?</span>
+                            </td>
+                            <td class="text-justify">
+                                Sí. Ningún recurso tiene un rol pasivo o meramente decorativo: las tarjetas de casos provocan el debate grupal; la ficha informativa sirve para contrastar hipótesis y tomar decisiones fundamentadas; el papelógrafo <em>“Nuestra Ruta del Diálogo”</em> exige consensuar ideas en equipo; y la tarjeta de compromiso promueve la reflexión autónoma y la socialización en el mural del aula.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold text-[#0f3d56] bg-slate-50/70">
+                                Inclusión:<br>
+                                <span class="font-normal text-xs text-slate-600">¿Permiten la participación de todos? ¿Qué adaptaciones necesitan?</span>
+                            </td>
+                            <td class="text-justify">
+                                Sí permiten la participación de todo el grupo al combinar estímulos visuales, orales y escritos en equipos colaborativos. Como <strong>adaptaciones inclusivas</strong> para atender la diversidad, se contempla: (1) incorporar pictogramas y tipografía grande de alto contraste en la historieta y la ficha informativa para estudiantes con dificultades lectoras o visuales; (2) leer los casos en voz alta con apoyo de un compañero lector; y (3) permitir que el compromiso personal en la tarjeta pueda expresarse mediante un dibujo o una frase breve guiada según las necesidades individuales.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
